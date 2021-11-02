@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 #ifndef LIB_H
 #define LIB_H
+#include <stddef.h>
 
 int	ft_isalpha(int chr);
 int	ft_isdigit(int arg);
 int	ft_isalnum(int arg);
 int	ft_isprint(int arg);
+size_t	ft_strlen(const char *s);
 #endif
