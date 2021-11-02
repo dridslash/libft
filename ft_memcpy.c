@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:03:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/02 18:03:13 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/02 18:15:13 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/02 19:23:11 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
-
-void ft_bzero(void *s,size_t n)
+void *ft_memcpy(void *restrict dest,const void *restrict src,size_t n)
 {
-	int i=0;
-	char *ss=(char*)s;
-	while( i < n)
-	{
-		ss[i]='\0';
-		i++;
-	}
-}
+	char *d=(char*)dest;
+	char *
+
 int main(void)
 {
-	char s[50]="hello world";
-	char s2[50]="hello wolrd";
-	ft_bzero(s+3,1);
-	bzero(s2+3,1);
-	printf("%s\n",s);
-	printf("%s\n",s2);
+	char src[50]="hello";
+	char dest[50]="world";
+	printf("%s\n",memcpy(dest,src,2));
 }
