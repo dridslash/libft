@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/04 12:48:01 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/04 15:54:32 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isalnum(int arg)
+char	*ft_substr(char	const *s,unsigned int start,size_t len)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
+	char *sub=(char*)malloc(len+1*sizeof(char));
+	if(sub == NULL)
 	{
-		return (1);
+		return (NULL);
 	}
-	return (0);
+	unsigned int index;
+	index=0;
+	while(start < len && s[start] != '\0')
+	{
+		sub[index]=s[start];
+		index++;
+		start++;
+	}
+	sub[index]='\0';
+	return (sub);
 }
+
 int main(void)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	char *s="hello";
+	char *sb=ft_substr(s,0,1);
+	printf("original : %s \n substring : %s \n",s,sb);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:24:33 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:29:36 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2021/11/05 23:17:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_isascii(int arg)
 {
-	if (arg >= 0 && arg <= 127)
+	if ((unsigned char)arg >= 0 && (unsigned char)arg <= 127)
 	{
 		return (1);
 	}

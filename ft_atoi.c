@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 17:33:38 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/04 09:55:33 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-int	ft_isalnum(int arg)
+static int ft_isspace(const char chr)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
+	if(chr == ' '
+			|| chr == '\n'
+			|| chr == '\t'
+			|| chr == '\v'
+			|| chr == '\f'
+			|| chr == '\r')
 	{
 		return (1);
 	}
 	return (0);
 }
-int main(void)
+int	ft_atoi(const char *nptr)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	int i=0;
+	int x=1;
+	int result=0;
+	while(ft_isspace(nptr[i]))
+		i++;
+	if(nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+		x*=-1;
+		i++;
+	}
+	while(nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result=(result * 10) + nptr[i] - '0';
+		i++;
+	}
+	return (result * x);
 }

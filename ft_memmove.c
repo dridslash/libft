@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 10:30:24 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/03 15:58:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 #include <stdio.h>
-
-int	ft_isalnum(int arg)
+void	*ft_memmove(void *dest,const void *src,size_t n)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
+	unsigned char *d=(unsigned char *)dest;
+	unsigned char *s=(unsigned char *)src;
+	unsigned char *tmp;
+	int i=0;
+	while(i < n)
 	{
-		return (1);
+		tmp[i]=s[i];
+		i++;
 	}
-	return (0);
+	i=0;
+	while(i < n)
+	{
+		d[i]=tmp[i];
+		i++;
+	}
+	dest=d;
+	return (dest);
 }
-int main(void)
+
+int main (void)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	char s[20]="hello";
+	char s2[20]="world";
+	printf("%s \n",memmove(s2,s,2));
+	printf("%s \n",ft_memmove(s2,s,2));
 }

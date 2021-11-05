@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 15:34:17 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/04 11:48:17 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isalnum(int arg)
+#include <string.h>
+void *ft_memchr(const void *s,int c,size_t n)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
+	unsigned char *ss=(unsigned char *)s;
+	size_t i=0;
+	while( i < n)
 	{
-		return (1);
+		if (ss[i] == c)
+		{
+			s=&ss[i];
+			return (unsigned char*)s;
+		}
+		i++;
 	}
-	return (0);
+	return 0;
 }
+
 int main(void)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	char s[20]="hello";
+    printf("%s \n",memchr(s,'h',5));
+	printf("%s \n",ft_memchr(s,'h',5));
 }

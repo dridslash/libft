@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 16:03:34 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/03 17:00:35 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isalnum(int arg)
+#include <string.h>
+int ft_memcmp(const void *s1,const void *s2,size_t n)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
-	{
-		return (1);
-	}
-	return (0);
+ unsigned char *ss1=(unsigned char*)s1;
+ unsigned char *ss2=(unsigned char*)s2;
+ size_t i=0;
+ if ( n == 0)
+ {
+	 return (0);
+ }
+ while(i < n)
+ {
+	 
+	 return (ss1[i] - ss2[i]);
+	 i++;
+ }
+ return (0);
 }
 int main(void)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	char *s="a";
+    char *s2="b";
+    printf("%d \n",memcmp(s,s2,0));
+	printf("%d \n",ft_memcmp(s,s2,0));
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 19:09:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/05 17:59:58 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 14:31:08 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/03 14:37:48 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isprint(int arg)
+#include <unistd.h>
+int	ft_toupper(int c)
 {
-	if (arg >= 32 && arg <= 127)
+	if (c >= 97 && c <=122)
 	{
-		return (1);
+	return c - 32;
 	}
-	return (0);
+return c;
+}
+int main(void)
+{
+	char c='*';
+	char c2=ft_toupper(c);
+	write(1,&c2,1);
 }

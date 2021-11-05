@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 19:09:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/05 17:59:58 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 14:44:17 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/03 16:11:52 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isprint(int arg)
+#include <string.h>
+char	*ft_strchr(const char *s,int c)
 {
-	if (arg >= 32 && arg <= 127)
+	int i=0;
+	while(s[i] != '\0')
 	{
-		return (1);
+		if(s[i] == c)
+		{
+			return ((char*)&s[i]);
+		}
+		i++;
 	}
-	return (0);
+	return 0;
 }
+
+int main(void)
+{
+	char *s="hello";
+	printf("%s \n",strchr(s,'b'));
+	printf("%s \n",ft_strchr(s,'b'));
+}
+

@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 18:10:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2021/11/01 18:18:22 by mnaqqad          ###   ########.fr       */
+/*   Created: 2021/11/03 15:08:00 by mnaqqad           #+#    #+#             */
+/*   Updated: 2021/11/03 16:00:05 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-int	ft_isalnum(int arg)
+#include <string.h>
+char	*ft_strrchr(const char *s,int c)
 {
-	if ((arg >= 48 && arg <= 57) 
-			|| (arg >= 65 && arg <= 90)
-			|| (arg >= 97 && arg <= 122))
+    int i=0;
+	while(s[i] != '\0')
 	{
-		return (1);
+		i++;
 	}
-	return (0);
+	while(i >= 0)
+	{
+		if (s[i] == c)
+		{
+			return ((char*)&s[i]);
+		}
+		i--;
+	}
+	return 0;
 }
 int main(void)
 {
-	char c='5'
-		printf("the result is %d \n",ft_isalnum(c));
+	char *s="hellolllll";
+	printf("%s \n",strrchr(s,'l'));
+	printf("%s \n",ft_strrchr(s,'l'));
 }
